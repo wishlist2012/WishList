@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBEntities\User.cs" />
+    <Compile Include="DBEntities\UserEntity.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

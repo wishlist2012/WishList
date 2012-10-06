@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WishList_Repository.DBEntities;
+using System.Collections.ObjectModel;
 
 namespace WishList_Repository
 {
@@ -11,12 +12,18 @@ namespace WishList_Repository
     /// </summary>
     public interface IUserRepository : IDisposable
     {
-        User Get(int id);
+        UserEntity Get(int id);
 
-        bool Update(User user);
+        Collection<UserEntity> GetAll();
 
-        bool Create(User user);
+        bool Update(UserEntity user);
+
+        bool Create(UserEntity user);
 
         bool Delete(int id);
+
+        bool IsExists(string email, string password);
+
+        bool ChangePassword(int userId, string oldPassword, string newPassword);
     }
 }
