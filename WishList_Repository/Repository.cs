@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 
-using WhishList_Repository.DBEntities;
-using WhishList_Repository.ObjectRepositories;
+using WishList_Repository.DBEntities;
+using WishList_Repository.ObjectRepositories;
 
-namespace WhishList_Repository
+namespace WishList_Repository
 {
     public static class Repository
     {

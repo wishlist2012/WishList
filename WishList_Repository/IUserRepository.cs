@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WhishList_Repository.DBEntities;
+using WishList_Repository.DBEntities;
 
-namespace WhishList_Repository
+namespace WishList_Repository
 {
     /// <summary>
     /// Common interface for user repository

@@ -1,4 +1,4 @@
-WhishList
+WishList
 =========
 
-WhishList for you and your friends
+WishList for you and your friends

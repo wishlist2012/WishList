@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WhishList_Repository.DBEntities
+namespace WishList_Repository.DBEntities
 {
     /// <summary>
     /// User entity

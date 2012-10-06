@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 
-using WhishList_Repository.DBEntities;
+using WishList_Repository.DBEntities;
 
-namespace WhishList_Repository.ObjectRepositories
+namespace WishList_Repository.ObjectRepositories
 {
     /// <summary>
     /// Object-based user repository

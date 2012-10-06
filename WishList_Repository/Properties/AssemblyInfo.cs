@@ -2,11 +2,11 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("WhishList_Repository")]
-[assembly: AssemblyDescription("WhishList Repository Assembly")]
+[assembly: AssemblyTitle("WishList_Repository")]
+[assembly: AssemblyDescription("WishList Repository Assembly")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WhishList_Repository")]
+[assembly: AssemblyProduct("WishList_Repository")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("ru")]
