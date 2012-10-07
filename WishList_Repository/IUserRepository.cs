@@ -24,6 +24,12 @@ namespace WishList_Repository
 
         bool IsExists(string email, string password);
 
+        bool IsExists(int userId);
+
         bool ChangePassword(int userId, string oldPassword, string newPassword);
+
+        int GetCount();
+
+        Collection<UserEntity> GetFollowings(int userId);
     }
 }

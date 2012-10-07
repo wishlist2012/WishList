@@ -22,7 +22,7 @@ namespace WishList_Repository.ObjectRepositories
             _users = new Collection<UserEntity>();
             _users.Add(new UserEntity() { Id = 1, FirstName = "Сергей", LastName = "Пархоменко", Password = "welcome@1", UserSettingId = 1, CreatedUTC = new DateTime(2012, 1, 10, 13, 54, 46), Email = "john@gmail.com", IsActive = true });
             _users.Add(new UserEntity() { Id = 2, FirstName = "Анатолий", LastName = "Белугин", Password = "welcome@1", UserSettingId = 2, CreatedUTC = new DateTime(2012, 2, 15, 10, 23, 13), Email = "michael@yandex.ru", IsActive = true });
-            _users.Add(new UserEntity() { Id = 3, FirstName = "Вадим", LastName = "Иванов", Password = "welcome@1", UserSettingId = 3, CreatedUTC = new DateTime(2012, 1, 16, 23, 28, 17), Email = "tony@live.com", IsActive = true });
+            _users.Add(new UserEntity() { Id = 3, FirstName = "Вадим", LastName = "Иванов", Password = "welcome@1", UserSettingId = 3, CreatedUTC = new DateTime(2012, 1, 16, 23, 28, 17), Email = "tony@live.com", IsActive = false });
             _users.Add(new UserEntity() { Id = 4, FirstName = "Олег", LastName = "Корниенко", Password = "welcome@1", UserSettingId = 4, CreatedUTC = new DateTime(2012, 2, 19, 8, 15, 55), Email = "sarah@hotmail.com", IsActive = true });
             _users.Add(new UserEntity() { Id = 5, FirstName = "Анна", LastName = "Солодовник", Password = "welcome@1", UserSettingId = 5, CreatedUTC = new DateTime(2012, 1, 30, 15, 44, 37), Email = "daniel@yahoo.com", IsActive = true });
             _users.Add(new UserEntity() { Id = 6, FirstName = "Юлия", LastName = "Зеленская", Password = "welcome@1", UserSettingId = 6, CreatedUTC = new DateTime(2012, 1, 8, 12, 8, 55), Email = "helen@inbox.com", IsActive = true });
@@ -33,6 +33,11 @@ namespace WishList_Repository.ObjectRepositories
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            _users.Clear();
+        }
 
         public UserEntity Get(int userId)
         {
@@ -106,9 +111,25 @@ namespace WishList_Repository.ObjectRepositories
             return changePasswordResult;
         }
 
-        public void Dispose()
+        public int GetCount()
         {
-            _users.Clear();
+            return _users.Count;
+        }
+
+        public bool IsExists(int userId)
+        {
+            return (_users.Count(r => r.Id == userId) > 0);
+        }
+
+        public Collection<UserEntity> GetFollowings(int userId)
+        {
+            Collection<UserEntity> followingUsers = new Collection<UserEntity>();
+
+            var followingRepository = Repository.UserFollowingRepositoryInstance;
+            foreach (UserFollowingEntity following in followingRepository.GetByUserId(userId))
+                followingUsers.Add(this.Get(following.FollowingId));
+
+            return followingUsers;
         }
     }
 }
