@@ -8,8 +8,8 @@
     <ProjectGuid>{772B7A31-487D-4DDB-9A92-2E23415DEF9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhishList_Repository</RootNamespace>
-    <AssemblyName>WhishList_Repository</AssemblyName>
+    <RootNamespace>WishList_Repository</RootNamespace>
+    <AssemblyName>WishList_Repository</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
