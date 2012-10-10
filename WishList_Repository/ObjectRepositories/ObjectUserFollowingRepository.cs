@@ -9,7 +9,7 @@ namespace WishList_Repository.ObjectRepositories
 {
     public class ObjectUserFollowingRepository : IUserFollowingRepository
     {
-        Collection<UserFollowingEntity> _userFollowings;
+        private Collection<UserFollowingEntity> _userFollowings;
 
         #region Default constructor
 

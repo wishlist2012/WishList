@@ -42,12 +42,15 @@
   <ItemGroup>
     <Compile Include="DBEntities\UserEntity.cs" />
     <Compile Include="DBEntities\UserFollowingEntity.cs" />
+    <Compile Include="DBEntities\UserPostEntity.cs" />
     <Compile Include="IUserFollowingRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserFollowingRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserRepository.cs" />
+    <Compile Include="ObjectRepositories\ObjectUserPostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="IUserPostRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
