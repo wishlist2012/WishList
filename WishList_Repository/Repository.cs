@@ -14,6 +14,7 @@ namespace WishList_Repository
         private static IUserRepository _userRepositoryInstance;
         private static IUserFollowingRepository _userFollowingRepositoryInstance;
         private static IUserPostRepository _userPostRepositoryInstance;
+        private static ICategoryRepository _categoryRepositoryInstance;
 
         /// <summary>
         /// Get new instance of user repository
@@ -55,6 +56,20 @@ namespace WishList_Repository
                     _userPostRepositoryInstance = new ObjectUserPostRepository();
 
                 return _userPostRepositoryInstance;
+            }
+        }
+
+        /// <summary>
+        /// Get new instance of category repository
+        /// </summary>
+        public static ICategoryRepository CategoryRepositoryInstance
+        {
+            get
+            {
+                if (_categoryRepositoryInstance == null)
+                    _categoryRepositoryInstance = new ObjectCategoryRepository();
+
+                return _categoryRepositoryInstance;
             }
         }
     }

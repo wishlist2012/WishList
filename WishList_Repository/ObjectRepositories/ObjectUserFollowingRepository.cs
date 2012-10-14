@@ -7,6 +7,9 @@ using System.Collections.ObjectModel;
 
 namespace WishList_Repository.ObjectRepositories
 {
+    /// <summary>
+    /// Object-based user following repository
+    /// </summary>
     public class ObjectUserFollowingRepository : IUserFollowingRepository
     {
         private Collection<UserFollowingEntity> _userFollowings;

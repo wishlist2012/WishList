@@ -7,6 +7,9 @@ using System.Collections.ObjectModel;
 
 namespace WishList_Repository.ObjectRepositories
 {
+    /// <summary>
+    /// Object-based user post repository
+    /// </summary>
     public class ObjectUserPostRepository : IUserPostRepository
     {
         private Collection<UserPostEntity> _userPosts;
