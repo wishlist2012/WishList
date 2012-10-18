@@ -54,12 +54,11 @@ namespace WishList_Repository.ObjectRepositories
         public Collection<CommentEntity> GetAllByPostId(int id)
         {
             Collection<CommentEntity> comments = new Collection<CommentEntity>();
-            foreach (CommentEntity comment in _comments.Where(c => c.PostId == id))
+
+            if (Repository.UserPostRepositoryInstance.IsExists(id))
             {
-                if (Repository.UserPostRepositoryInstance.IsExists(comment.PostId))
-                {
+                foreach (CommentEntity comment in _comments.Where(c => c.PostId == id))
                     comments.Add(comment);
-                }
             }
             return comments;
         }
