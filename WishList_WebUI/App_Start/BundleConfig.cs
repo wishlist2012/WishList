@@ -25,7 +25,8 @@ namespace WishList_WebUI
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/site.css",
-                        "~/Content/LayoutStyle.css"));
+                        "~/Content/LayoutStyle.css",
+                        "~/Content/Gradients.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

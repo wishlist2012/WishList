@@ -129,7 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Gradientscss.css" />
     <Content Include="Content\images\background.png" />
+    <Content Include="Content\images\search.gif" />
     <Content Include="Content\images\title.png" />
     <Content Include="Content\LayoutStyle.css" />
     <Content Include="Global.asax" />
