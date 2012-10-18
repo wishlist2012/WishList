@@ -51,7 +51,7 @@ namespace WishList_Repository.ObjectRepositories
             _categories.Add(new CategoryEntity() { Id = 29, Name = "Food & Drink" });
             _categories.Add(new CategoryEntity() { Id = 30, Name = "Holidays & Events" });
             _categories.Add(new CategoryEntity() { Id = 31, Name = "Men's Fashions" });
-            _categories.Add(new CategoryEntity() { Id = 32, Name = "Scince & Natur" });
+            _categories.Add(new CategoryEntity() { Id = 32, Name = "Scince & Nature" });
             _categories.Add(new CategoryEntity() { Id = 33, Name = "Weddings" });
         }
 

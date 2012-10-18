@@ -40,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBEntities\CommentEntity.cs" />
     <Compile Include="DBEntities\UserEntity.cs" />
     <Compile Include="DBEntities\UserFollowingEntity.cs" />
     <Compile Include="DBEntities\UserPostEntity.cs" />
     <Compile Include="DBEntities\CategoryEntity.cs" />
+    <Compile Include="ICommentRepository.cs" />
     <Compile Include="IUserFollowingRepository.cs" />
     <Compile Include="IUserRepository.cs" />
+    <Compile Include="ObjectRepositories\ObjectCommentRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserFollowingRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserRepository.cs" />
     <Compile Include="ObjectRepositories\ObjectUserPostRepository.cs" />
