@@ -118,7 +118,7 @@ namespace WishList_Repository.ObjectRepositories
 
         public bool IsExists(int userId)
         {
-            return (_users.Count(r => r.Id == userId) > 0);
+            return (_users.Count(r => r.Id == userId) == 1);
         }
 
         public Collection<UserEntity> GetFollowings(int userId)

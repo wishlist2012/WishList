@@ -48,8 +48,11 @@ namespace WishList_Repository.ObjectRepositories
         {
             Collection<UserPostEntity> posts = new Collection<UserPostEntity>();
 
-            foreach (UserPostEntity post in _userPosts.Where(r => r.AuthorUserId == userId && r.BoardId == boardId))
-                posts.Add(post);
+            if (Repository.UserRepositoryInstance.IsExists(userId))
+            {
+                foreach (UserPostEntity post in _userPosts.Where(r => r.AuthorUserId == userId && r.BoardId == boardId))
+                    posts.Add(post);
+            }
 
             return posts;
         }

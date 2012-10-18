@@ -45,11 +45,10 @@ namespace WishList_Repository.ObjectRepositories
         public Collection<UserFollowingEntity> GetByUserId(int userId)
         {
             Collection<UserFollowingEntity> followings = new Collection<UserFollowingEntity>();
-            var userRepository = Repository.UserRepositoryInstance;
 
-            foreach (UserFollowingEntity userFollowing in _userFollowings.Where(r => r.UserId == userId))
+            if (Repository.UserRepositoryInstance.IsExists(userId))
             {
-                if (userRepository.IsExists(userFollowing.UserId))
+                foreach (UserFollowingEntity userFollowing in _userFollowings.Where(r => r.UserId == userId))
                     followings.Add(userFollowing);
             }
 
