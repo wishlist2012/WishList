@@ -15,5 +15,9 @@ namespace WishList_Repository
         UserPostEntity Get(long id);
 
         Collection<UserPostEntity> Get(int userId, int boardId);
+
+        bool IsExists(long id);
+
+        long GetCount();
     }
 }

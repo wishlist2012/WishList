@@ -53,5 +53,15 @@ namespace WishList_Repository.ObjectRepositories
 
             return posts;
         }
+
+        public bool IsExists(long id)
+        {
+            return (_userPosts.Count(r => r.Id == id) == 1);
+        }
+
+        public long GetCount()
+        {
+            return _userPosts.Count;
+        }
     }
 }

@@ -10,55 +10,53 @@ namespace WishList_Repository.ObjectRepositories
     /// <summary>
     /// Object-based comment repository
     /// </summary>
-    public class ObjectCommentRepository: ICommentRepository
+    public class ObjectCommentRepository : ICommentRepository
     {
         private Collection<CommentEntity> _comments;
+        private long identityIdCounter = 1;
 
         #region Default constructor
 
         public ObjectCommentRepository()
         {
             _comments = new Collection<CommentEntity>();
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 1, UserId = 1, CreatedUTC = new DateTime(2012, 1, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 2, PostId = 1, UserId = 2, CreatedUTC = new DateTime(2012, 2, 1, 12, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 3, PostId = 1, UserId = 3, CreatedUTC = new DateTime(2012, 3, 21, 9, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 4, PostId = 2, UserId = 1, CreatedUTC = new DateTime(2012, 10, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 5, PostId = 2, UserId = 5, CreatedUTC = new DateTime(2012, 9, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 6, PostId = 2, UserId = 2, CreatedUTC = new DateTime(2012, 9, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 7, PostId = 3, UserId = 2, CreatedUTC = new DateTime(2012, 9, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 8, PostId = 3, UserId = 1, CreatedUTC = new DateTime(2012, 9, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 9, PostId = 3, UserId = 10, CreatedUTC = new DateTime(2012, 9, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 10, PostId = 4, UserId = 10, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 11, PostId = 4, UserId = 9, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 12, PostId = 5, UserId = 4, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 13, PostId = 5, UserId = 6, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 14, PostId = 6, UserId = 6, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 15, PostId = 6, UserId = 7, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 16, PostId = 7, UserId = 7, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 17, PostId = 7, UserId = 8, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 18, PostId = 8, UserId = 8, CreatedUTC = new DateTime(2012, 7, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 19, PostId = 8, UserId = 9, CreatedUTC = new DateTime(2012, 4, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 20, PostId = 9, UserId = 9, CreatedUTC = new DateTime(2012, 10, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 21, PostId = 9, UserId = 10, CreatedUTC = new DateTime(2012, 5, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 22, PostId = 9, UserId = 8, CreatedUTC = new DateTime(2012, 5, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 23, PostId = 9, UserId = 1, CreatedUTC = new DateTime(2012, 5, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 24, PostId = 10, UserId = 1, CreatedUTC = new DateTime(2012, 6, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 25, PostId = 10, UserId = 2, CreatedUTC = new DateTime(2012, 6, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 10, UserId = 3, CreatedUTC = new DateTime(2012, 3, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 10, UserId = 4, CreatedUTC = new DateTime(2012, 3, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 10, UserId = 5, CreatedUTC = new DateTime(2012, 3, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 10, UserId = 6, CreatedUTC = new DateTime(2012, 8, 10, 13, 54, 46), Message = "Nice picture!" });
-            _comments.Add(new CommentEntity() { Id = 1, PostId = 10, UserId = 7, CreatedUTC = new DateTime(2012, 8, 10, 13, 54, 46), Message = "Nice picture!" });
+
+            Random rand = new Random();
+            for (long i = 1; i < Repository.UserPostRepositoryInstance.GetCount(); i++)
+            {
+                // random count of comments for post
+                for (int j = 1; j < rand.Next(1, 100); j++)
+                {
+                    if (Repository.UserPostRepositoryInstance.IsExists(i))
+                    {
+                        CommentEntity comment = new CommentEntity();
+                        comment.Id = identityIdCounter++;
+                        comment.CreatedUTC = DateTime.Now;
+                        comment.PostId = i;
+                        comment.UserId = Repository.UserPostRepositoryInstance.Get(i).AuthorUserId;
+                        comment.Message = "";
+                        for (int k = 0; k < rand.Next(1, 10); k++)
+                            comment.Message += "Nice post!";
+
+                        _comments.Add(comment);
+                    }
+                }
+            }
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            _comments.Clear();
+        }
 
         public Collection<CommentEntity> GetAllByPostId(int id)
         {
             Collection<CommentEntity> comments = new Collection<CommentEntity>();
             foreach (CommentEntity comment in _comments.Where(c => c.PostId == id))
             {
-                if (comment != null)
+                if (Repository.UserPostRepositoryInstance.IsExists(comment.PostId))
                 {
                     comments.Add(comment);
                 }
@@ -87,7 +85,7 @@ namespace WishList_Repository.ObjectRepositories
 
             if (old != null)
             {
-                old.Message = comment.Message;                
+                old.Message = comment.Message;
                 updateResult = true;
             }
 
@@ -114,9 +112,5 @@ namespace WishList_Repository.ObjectRepositories
             return _comments.Count;
         }
 
-        public void Dispose()
-        {
-            _comments.Clear();
-        }
     }
 }

@@ -14,7 +14,7 @@ namespace WishList_Repository.DBEntities
 
         public long PostId { get; set; }
 
-        public long UserId { get; set; }
+        public int UserId { get; set; }
 
         public string Message { get; set; }
 

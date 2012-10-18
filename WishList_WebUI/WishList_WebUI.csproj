@@ -170,6 +170,12 @@
   <ItemGroup>
     <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WishList_Repository\WishList_Repository.csproj">
+      <Project>{772B7A31-487D-4DDB-9A92-2E23415DEF9D}</Project>
+      <Name>WishList_Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
