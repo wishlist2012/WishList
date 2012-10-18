@@ -76,6 +76,10 @@
     border: 1px solid #c4c4c4;
     background-color:#fff;
 }
+#search-button img
+{
+    border-style:none;
+}
 /*------------------------ RIGHT NAV MENU ---------------------------------*/
 .right-nav
 {
