@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WishList_Repository.DBEntities;
+using System.Collections.ObjectModel;
 
 namespace WishList_WebUI.Controllers
 {
@@ -19,7 +21,7 @@ namespace WishList_WebUI.Controllers
             //var t3 = WishList_Repository.Repository.UserPostRepositoryInstance;
             //var t4 = WishList_Repository.Repository.CommentRepositoryInstance;
             //var t5 = WishList_Repository.Repository.CategoryRepositoryInstance;
-
+		
             return View();
         }
 

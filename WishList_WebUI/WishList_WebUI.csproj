@@ -135,6 +135,12 @@
     <Content Include="Content\LayoutStyle.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\15058979973519584_5JffbgT8_c.jpg" />
+    <Content Include="Images\18014467230396493_iCzDceyb_c.jpg" />
+    <Content Include="Images\193021534000511814_id7vNtip_c.jpg" />
+    <Content Include="Images\224617100136471929_CAb6EqZF_c.jpg" />
+    <Content Include="Images\9499849185444453_3AIPDcbB_c.jpg" />
+    <Content Include="Images\medveput.jpg" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
