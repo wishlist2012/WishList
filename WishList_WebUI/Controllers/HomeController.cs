@@ -24,13 +24,15 @@ namespace WishList_WebUI.Controllers
             //var t5 = WishList_Repository.Repository.CategoryRepositoryInstance;
 
 			Collection<UserPostEntity> posts = WishList_Repository.Repository.UserPostRepositoryInstance.Get(1, 1);
+			Collection<UserEntity> users = WishList_Repository.Repository.UserRepositoryInstance.GetAll();
 
 			Collection<PinViewModel> Pins = new Collection<PinViewModel>();
 
 			foreach (UserPostEntity post in posts)
 			{
 				Collection<CommentEntity> comments = WishList_Repository.Repository.CommentRepositoryInstance.GetAllByPostId(post.Id);
-				Pins.Add(new PinViewModel(post, comments));
+
+				Pins.Add(new PinViewModel(post, users, comments));
 			}
 
 			return View(Pins);

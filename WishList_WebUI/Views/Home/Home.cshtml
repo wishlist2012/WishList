@@ -6,12 +6,14 @@
 
 @foreach (WishList_WebUI.Models.PinViewModel pin in ViewData.Model)
 {
-	<img src="@pin.UserPost.ImageUrl" alt="Alternate Text" /> 
-	
+	<img src="@pin.UserPost.ImageUrl" alt="Alternate Text" /> 	
 	<ul>
 	@foreach (WishList_Repository.DBEntities.CommentEntity comment in pin.Comments)
 	{
-		<li>@comment.Message</li>	
+		var user = pin.Users.SingleOrDefault(u => u.Id == comment.UserId);
+	 	<b>@user.FirstName</b>
+		<b>@user.LastName</b>
+		<li>@comment.Message</li>			
 	} 
 	</ul>
 }
