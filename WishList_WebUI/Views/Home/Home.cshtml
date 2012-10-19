@@ -3,3 +3,15 @@
 }
 
 <h2>Home</h2>
+
+@foreach (WishList_WebUI.Models.PinViewModel pin in ViewData.Model)
+{
+	<img src="@pin.UserPost.ImageUrl" alt="Alternate Text" /> 
+	
+	<ul>
+	@foreach (WishList_Repository.DBEntities.CommentEntity comment in pin.Comments)
+	{
+		<li>@comment.Message</li>	
+	} 
+	</ul>
+}

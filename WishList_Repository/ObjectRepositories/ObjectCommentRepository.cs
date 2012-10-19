@@ -51,7 +51,7 @@ namespace WishList_Repository.ObjectRepositories
             _comments.Clear();
         }
 
-        public Collection<CommentEntity> GetAllByPostId(int id)
+        public Collection<CommentEntity> GetAllByPostId(long id)
         {
             Collection<CommentEntity> comments = new Collection<CommentEntity>();
 

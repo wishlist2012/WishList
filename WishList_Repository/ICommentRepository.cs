@@ -12,7 +12,7 @@ namespace WishList_Repository
     /// </summary>
     public interface ICommentRepository: IDisposable
     {
-        Collection<CommentEntity> GetAllByPostId(int id);
+        Collection<CommentEntity> GetAllByPostId(long id);
 
         bool Create(CommentEntity comment);
 
