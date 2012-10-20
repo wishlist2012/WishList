@@ -27,12 +27,13 @@ namespace WishList_Repository.ObjectRepositories
             IUserRepository userRepository = Repository.UserRepositoryInstance;
 
 			List<String> images = ObjectUserPostRepository.GetImagesPath();
+            List<String> thumbnails = ObjectUserPostRepository.GetThumbnailsPath();
 
             foreach (UserEntity user in userRepository.GetAll())
             {
                 int postCount = rnd.Next(1, 100);
                 for (int i = 0; i < postCount; i++)
-					_userPosts.Add(new UserPostEntity() { Id = identityIdCounter++, AuthorUserId = user.Id, BoardId = user.Id, Title = string.Format("Имя картинки {0}", rnd.Next(1000)), Message = string.Format("Здесь может быть какое-то сообщение {0}", rnd.Next(1000)), LikesCount = rnd.Next(1000), ImageUrl = images[rnd.Next(6)].ToString() });
+					_userPosts.Add(new UserPostEntity() { Id = identityIdCounter++, AuthorUserId = user.Id, BoardId = user.Id, Title = string.Format("Имя картинки {0}", rnd.Next(1000)), Message = string.Format("Здесь может быть какое-то сообщение {0}", rnd.Next(1000)), LikesCount = rnd.Next(1000), ImageUrl = images[rnd.Next(6)].ToString(), ThumbnailUrl = thumbnails[rnd.Next(6)].ToString() });
             }
         }
 
@@ -51,6 +52,20 @@ namespace WishList_Repository.ObjectRepositories
 
 			return imagesList;
 		}
+
+        static List<String> GetThumbnailsPath()
+        {
+            DirectoryInfo folder = new DirectoryInfo(HttpContext.Current.Server.MapPath("/Images/Thumbnails"));
+            FileInfo[] images = folder.GetFiles();
+
+            List<String> imagesList = new List<String>();
+            for (int i = 0; i < images.Length; i++)
+            {
+                imagesList.Add(string.Format(@"Images\Thumbnails\{0}", images[i].Name));
+            }
+
+            return imagesList;
+        }
 
         public void Dispose()
         {

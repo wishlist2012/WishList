@@ -109,8 +109,9 @@
             <li class="menu-item">Gifts</li>
         </ul>
     </div>
-    
-    @RenderBody()
+    <div class="body-wrapper">
+        @RenderBody()
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>

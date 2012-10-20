@@ -29,6 +29,8 @@ namespace WishList_Repository.DBEntities
 
         public string ImageUrl { get; set; }
 
+        public string ThumbnailUrl { get; set; }
+
         public int ImageWidth { get; set; }
 
         public int ImageHeight { get; set; }

@@ -8,6 +8,7 @@ body {
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;    
     background-image: url(images/background.png);
+    min-width:933px;
 }
 
 header, footer, nav, section {

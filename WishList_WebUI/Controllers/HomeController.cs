@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WishList_Repository;
 using WishList_Repository.DBEntities;
 using System.Collections.ObjectModel;
 using WishList_WebUI.Models;
@@ -16,26 +17,19 @@ namespace WishList_WebUI.Controllers
 
         public ActionResult Home()
         {
-            // for testing
-            //var t1 = WishList_Repository.Repository.UserRepositoryInstance;
-            //var t2 = WishList_Repository.Repository.UserFollowingRepositoryInstance;
-            //var t3 = WishList_Repository.Repository.UserPostRepositoryInstance;
-            //var t4 = WishList_Repository.Repository.CommentRepositoryInstance;
-            //var t5 = WishList_Repository.Repository.CategoryRepositoryInstance;
+            Collection<UserPostEntity> posts = Repository.UserPostRepositoryInstance.Get(1, 1);
+            Collection<UserEntity> users = Repository.UserRepositoryInstance.GetAll();
 
-			Collection<UserPostEntity> posts = WishList_Repository.Repository.UserPostRepositoryInstance.Get(1, 1);
-			Collection<UserEntity> users = WishList_Repository.Repository.UserRepositoryInstance.GetAll();
+            Collection<PinViewModel> Pins = new Collection<PinViewModel>();
 
-			Collection<PinViewModel> Pins = new Collection<PinViewModel>();
+            foreach (UserPostEntity post in posts)
+            {
+                Collection<CommentEntity> comments = Repository.CommentRepositoryInstance.GetAllByPostId(post.Id);
 
-			foreach (UserPostEntity post in posts)
-			{
-				Collection<CommentEntity> comments = WishList_Repository.Repository.CommentRepositoryInstance.GetAllByPostId(post.Id);
+                Pins.Add(new PinViewModel { UserPost = post, Users = users, Comments = comments });
+            }
 
-				Pins.Add(new PinViewModel(post, users, comments));
-			}
-
-			return View(Pins);
+            return View(Pins);
         }
 
     }
