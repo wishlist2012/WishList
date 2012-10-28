@@ -89,6 +89,10 @@ namespace WishList_Repository.ObjectRepositories
 
             return posts;
         }
+        public Collection<UserPostEntity> GetAll()
+        {            
+            return _userPosts;
+        }
 
         public bool IsExists(long id)
         {

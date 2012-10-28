@@ -17,19 +17,19 @@ namespace WishList_WebUI.Controllers
 
         public ActionResult Home()
         {
-            Collection<UserPostEntity> posts = Repository.UserPostRepositoryInstance.Get(1, 1);
+            Collection<UserPostEntity> posts = Repository.UserPostRepositoryInstance.GetAll();
             Collection<UserEntity> users = Repository.UserRepositoryInstance.GetAll();
-
-            Collection<PinViewModel> Pins = new Collection<PinViewModel>();
+            Collection<PinViewModel> pins = new Collection<PinViewModel>();
 
             foreach (UserPostEntity post in posts)
             {
                 Collection<CommentEntity> comments = Repository.CommentRepositoryInstance.GetAllByPostId(post.Id);
 
-                Pins.Add(new PinViewModel { UserPost = post, Users = users, Comments = comments });
+                pins.Add(new PinViewModel { UserPost = post, Users = users, Comments = comments });
             }
 
-            return View(Pins);
+            ViewData.Model = pins;
+            return View();
         }
 
     }
