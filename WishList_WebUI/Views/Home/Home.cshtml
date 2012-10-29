@@ -1,6 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
+
+<script type="text/javascript">
+	$(document).ready(function () {	
+		$('.post-wrapper .post').wookmark({ offset: 2, autoResize: true });
+		$(".post-wrapper").css("visibility", "visible");
+	})
+</script>
+
 <h2>
     Home</h2>
 <div class="post-wrapper">    
@@ -12,7 +20,7 @@
                 @foreach (WishList_Repository.DBEntities.CommentEntity comment in pin.Comments)
                 {
                     var user = pin.Users.SingleOrDefault(u => u.Id == comment.UserId);                
-                    <b>@user.FirstName</b>
+                    <b>@user.FirstName</b>					
                     <b>@user.LastName</b>
                     <li>@comment.Message</li>			
                 }

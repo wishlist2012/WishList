@@ -295,21 +295,12 @@
     color:#fff;
 }
 /*------------------------ POSTS ---------------------------------*/
-.body-wrapper
-{
-    position:relative;
-    width:auto; 
-    max-width:933px;
-}
 .post-wrapper
 {
-    position: relative;
-    min-height: 500px;
-    margin: 60px auto 0;
+	visibility:hidden;
 }
 .post
 {    
     width:222px;
-    margin-left:8px;    
-    position:absolute;
+    margin: 0 auto;      
 }
