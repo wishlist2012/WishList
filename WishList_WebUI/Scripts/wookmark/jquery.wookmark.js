@@ -12,7 +12,7 @@ $.fn.wookmark = function(options) {
   
   if(!this.wookmarkOptions) {
     this.wookmarkOptions = $.extend( {
-        container: $('body'),
+    	container: $('.post-wrapper'),
         offset: 2,
         autoResize: false,
         itemWidth: $(this[0]).outerWidth(),
