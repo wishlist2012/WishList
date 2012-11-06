@@ -47,7 +47,7 @@ namespace WishList_Repository.ObjectRepositories
 			List<String> imagesList = new List<String>();
 			for (int i = 0; i < images.Length; i++)
 			{
-				imagesList.Add(string.Format(@"Images\{0}", images[i].Name));
+				imagesList.Add(string.Format(@"Images/{0}", images[i].Name));
 			}
 
 			return imagesList;
@@ -61,7 +61,7 @@ namespace WishList_Repository.ObjectRepositories
             List<String> imagesList = new List<String>();
             for (int i = 0; i < images.Length; i++)
             {
-                imagesList.Add(string.Format(@"Images\Thumbnails\{0}", images[i].Name));
+                imagesList.Add(string.Format(@"Images/Thumbnails/{0}", images[i].Name));
             }
 
             return imagesList;

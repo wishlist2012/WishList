@@ -2,29 +2,36 @@
     ViewBag.Title = "Home";
 }
 
-<script type="text/javascript">
-	$(document).ready(function () {	
-		$('.post-wrapper .post').wookmark({ offset: 20, autoResize: true });
-		$(".post-wrapper").css("visibility", "visible");
-	})
-</script>
 
-<h2>
-    Home</h2>
 <div class="post-wrapper">    
     @foreach (WishList_WebUI.Models.PinViewModel pin in ViewData.Model)   
     {
         <div class="post">
-            <img src="@pin.UserPost.ThumbnailUrl" alt="Alternate Text" />
-            <ul>
+			<div class="actions">
+				<a class="action-button" href="#">Repin</a>
+				<a class="action-button" href="#">Like</a>
+				<a class="action-button" href="#">Comment</a>
+			</div>
+			<div class="pin-holder">
+				<img src="@pin.UserPost.ThumbnailUrl" alt="Alternate Text" />
+				<p class="pin-description font">@pin.UserPost.Title</p>
+				<p class="pin-info">
+					<span>like</span>
+					<span>repin</span>
+					<span>comments</span>
+				</p>
+			</div>
+            <div class="comments">
                 @foreach (WishList_Repository.DBEntities.CommentEntity comment in pin.Comments)
                 {
                     var user = pin.Users.SingleOrDefault(u => u.Id == comment.UserId);                
-                    <b>@user.FirstName</b>					
-                    <b>@user.LastName</b>
-                    <li>@comment.Message</li>			
+					<div class="comment font">
+						<b>@user.FirstName</b>					
+						<b>@user.LastName</b>
+						<p>@comment.Message</p>			
+					</div>
                 }
-            </ul>
+            </div>
         </div>        
     }
 </div>
