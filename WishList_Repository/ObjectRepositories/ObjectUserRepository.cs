@@ -5,6 +5,8 @@ using System.Text;
 using System.Collections.ObjectModel;
 
 using WishList_Repository.DBEntities;
+using System.IO;
+using System.Web;
 
 namespace WishList_Repository.ObjectRepositories
 {
@@ -20,19 +22,19 @@ namespace WishList_Repository.ObjectRepositories
         public ObjectUserRepository()
         {
             _users = new Collection<UserEntity>();
-            _users.Add(new UserEntity() { Id = 1, FirstName = "Сергей", LastName = "Пархоменко", Password = "welcome@1", UserSettingId = 1, CreatedUTC = new DateTime(2012, 1, 10, 13, 54, 46), Email = "john@gmail.com", IsActive = true });
-            _users.Add(new UserEntity() { Id = 2, FirstName = "Анатолий", LastName = "Белугин", Password = "welcome@1", UserSettingId = 2, CreatedUTC = new DateTime(2012, 2, 15, 10, 23, 13), Email = "michael@yandex.ru", IsActive = true });
-            _users.Add(new UserEntity() { Id = 3, FirstName = "Вадим", LastName = "Иванов", Password = "welcome@1", UserSettingId = 3, CreatedUTC = new DateTime(2012, 1, 16, 23, 28, 17), Email = "tony@live.com", IsActive = false });
-            _users.Add(new UserEntity() { Id = 4, FirstName = "Олег", LastName = "Корниенко", Password = "welcome@1", UserSettingId = 4, CreatedUTC = new DateTime(2012, 2, 19, 8, 15, 55), Email = "sarah@hotmail.com", IsActive = true });
-            _users.Add(new UserEntity() { Id = 5, FirstName = "Анна", LastName = "Солодовник", Password = "welcome@1", UserSettingId = 5, CreatedUTC = new DateTime(2012, 1, 30, 15, 44, 37), Email = "daniel@yahoo.com", IsActive = true });
-            _users.Add(new UserEntity() { Id = 6, FirstName = "Юлия", LastName = "Зеленская", Password = "welcome@1", UserSettingId = 6, CreatedUTC = new DateTime(2012, 1, 8, 12, 8, 55), Email = "helen@inbox.com", IsActive = true });
-            _users.Add(new UserEntity() { Id = 7, FirstName = "Инна", LastName = "Сорока", Password = "welcome@1", UserSettingId = 7, CreatedUTC = new DateTime(2012, 2, 19, 5, 11, 24), Email = "alex@gmail.com", IsActive = true });
-            _users.Add(new UserEntity() { Id = 8, FirstName = "Константин", LastName = "Беляев", Password = "welcome@1", UserSettingId = 8, CreatedUTC = new DateTime(2012, 2, 2, 13, 42, 19), Email = "james@mail.ru", IsActive = true });
-            _users.Add(new UserEntity() { Id = 9, FirstName = "Владимир", LastName = "Романенко", Password = "welcome@1", UserSettingId = 9, CreatedUTC = new DateTime(2012, 1, 17, 3, 45, 18), Email = "leonard@mail.ru", IsActive = true });
-            _users.Add(new UserEntity() { Id = 10, FirstName = "Ольга", LastName = "Васильева", Password = "welcome@1", UserSettingId = 10, CreatedUTC = new DateTime(2012, 1, 20, 21, 34, 20), Email = "kate@hotmail.com", IsActive = false });
+            _users.Add(new UserEntity() { Id = 1, FirstName = "Сергей", LastName = "Пархоменко", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 1, CreatedUTC = new DateTime(2012, 1, 10, 13, 54, 46), Email = "john@gmail.com", IsActive = true });
+			_users.Add(new UserEntity() { Id = 2, FirstName = "Анатолий", LastName = "Белугин", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 2, CreatedUTC = new DateTime(2012, 2, 15, 10, 23, 13), Email = "michael@yandex.ru", IsActive = true });
+			_users.Add(new UserEntity() { Id = 3, FirstName = "Вадим", LastName = "Иванов", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 3, CreatedUTC = new DateTime(2012, 1, 16, 23, 28, 17), Email = "tony@live.com", IsActive = false });
+			_users.Add(new UserEntity() { Id = 4, FirstName = "Олег", LastName = "Корниенко", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 4, CreatedUTC = new DateTime(2012, 2, 19, 8, 15, 55), Email = "sarah@hotmail.com", IsActive = true });
+			_users.Add(new UserEntity() { Id = 5, FirstName = "Анна", LastName = "Солодовник", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 5, CreatedUTC = new DateTime(2012, 1, 30, 15, 44, 37), Email = "daniel@yahoo.com", IsActive = true });
+			_users.Add(new UserEntity() { Id = 6, FirstName = "Юлия", LastName = "Зеленская", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 6, CreatedUTC = new DateTime(2012, 1, 8, 12, 8, 55), Email = "helen@inbox.com", IsActive = true });
+			_users.Add(new UserEntity() { Id = 7, FirstName = "Инна", LastName = "Сорока", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 7, CreatedUTC = new DateTime(2012, 2, 19, 5, 11, 24), Email = "alex@gmail.com", IsActive = true });
+			_users.Add(new UserEntity() { Id = 8, FirstName = "Константин", LastName = "Беляев", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 8, CreatedUTC = new DateTime(2012, 2, 2, 13, 42, 19), Email = "james@mail.ru", IsActive = true });
+			_users.Add(new UserEntity() { Id = 9, FirstName = "Владимир", LastName = "Романенко", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 9, CreatedUTC = new DateTime(2012, 1, 17, 3, 45, 18), Email = "leonard@mail.ru", IsActive = true });
+			_users.Add(new UserEntity() { Id = 10, FirstName = "Ольга", LastName = "Васильева", UserPhoto = @"/Images/UserPhoto/medveput.jpg", Password = "welcome@1", UserSettingId = 10, CreatedUTC = new DateTime(2012, 1, 20, 21, 34, 20), Email = "kate@hotmail.com", IsActive = false });
         }
 
-        #endregion
+        #endregion		
 
         public void Dispose()
         {

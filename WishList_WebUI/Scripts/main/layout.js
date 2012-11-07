@@ -14,7 +14,7 @@ function OrderComments() {
 					$(this).css('display', 'none');
 				}
 			});
-			$(post).find(".comments").append('<div class="comment"><a id="show-all" class="font" href="#">Show all</a></div>');						
+			$(post).find(".comments").append('<div class="comment"><a id="show-all" href="#">Show all</a></div>');						
 		}
 
 	});

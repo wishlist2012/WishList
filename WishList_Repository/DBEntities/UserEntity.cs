@@ -19,6 +19,8 @@ namespace WishList_Repository.DBEntities
 
         public string LastName { get; set; }
 
+		public string UserPhoto { get; set; }
+
         public string Email { get; set; }
 
         public DateTime CreatedUTC { get; set; }

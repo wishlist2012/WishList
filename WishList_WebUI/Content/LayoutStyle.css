@@ -297,12 +297,6 @@
     color:#fff;
 }
 /*------------------------ POSTS ---------------------------------*/
-.font
-{
-	font-family: "helvetica neue",arial,sans-serif;
-	font-size: 10px;
-	color: #211922;
-}
 .body-wrapper
 {	
 	width:100%;
@@ -323,6 +317,8 @@
 .pin-holder
 {
 	background-color: White;
+	border-bottom: 1px solid #C4C4C4;
+	padding-bottom:5px;
 }
 .pin-holder img
 {
@@ -337,6 +333,11 @@
 	width: 192px;
 	padding-left: 15px;
 }
+.pin-info
+{
+	color:#8C7E7E;
+	font-size:12px;
+}
 .pin-description
 {		
 	font-size:12px;
@@ -344,12 +345,41 @@
 .comments
 {	
 	background-color: #F2F0F0;	
+	font-family: "helvetica neue",arial,sans-serif;
+	font-size: 10px;
+	color: #211922;
 }
 .comment
-{
+{	
 	border-top:1px solid white;
 	border-bottom:1px solid #C4C4C4;	
-	padding: 10px 15px 10px 15px;	
+	height:1%;
+	overflow:hidden;	
+	padding:10px;
+}
+.comment img
+{
+	padding-right:10px;	
+	padding-bottom:5px;
+	width: 30px;
+	float:left;
+}
+.comment p
+{	
+	margin:0;
+	color:#8C7E7E;
+}
+.user-name
+{	
+	display:block;
+	margin-bottom: 5px;
+	text-decoration:none;
+	font-weight:bold;	
+	color:#524D4D;
+}
+.user-name:hover
+{
+	text-decoration: underline;
 }
 .comment:last-child
 {
@@ -358,9 +388,53 @@
 #show-all
 {
 	font-size:12px;
+	font-weight:bold;	
+	color:#524D4D;
+	text-decoration:none;
+}
+#show-all:hover
+{
+	text-decoration: underline;
 }
 
 /*----------------- POSTS BUTTON --------------------------*/
 .actions
 {
+	position:absolute;
+	height: 40px;
+	width:222px;
+	visibility:hidden;
+	padding: 5px 0 0 5px;
+}
+.post:hover .actions
+{
+	visibility:visible;
+}
+.action-button
+{
+	height:20px;	
+	display: inline-block;
+    line-height: 15px;   
+    padding: 5px 10px 0px 10px;   
+    font-family: Arial, Helvetica, sans-serif;    
+    font-size: 11px;
+    font-weight:bold;
+    color:#000000;
+    background-color:#F2F0F0;	 
+    text-decoration:none;	
+    border:1px solid #C4C4C4;
+    
+     /* border radius */
+    -webkit-border-radius: 5px;    
+    -moz-border-radius: 5px;    
+    border-radius: 5px;
+}
+.action-button:hover
+{
+	/* shadow */
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);  /* Для Firefox */    
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Для Safari и Chrome */     
+    box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.2); /* Параметры тени */
+    
+    background-color:#FFFFFF;
 }
