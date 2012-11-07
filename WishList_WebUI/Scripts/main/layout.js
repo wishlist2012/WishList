@@ -1,5 +1,6 @@
-﻿$(document).ready(function () {	
+﻿$(document).ready(function () {
 	OrderComments();
+	FixHeader();
 })
 function OrderComments() {
 	var posts = $('.post');
@@ -20,4 +21,32 @@ function OrderComments() {
 	});
 	$('.post-wrapper .post').wookmark({ offset: 20, autoResize: true });
 	$(".post-wrapper").css('visibility', 'visible');
+}
+
+function FixHeader() {
+	var topDistance = 40;
+	var position;
+	var header = $("#bottom-header");
+	$(window).scroll(function () {
+
+		position = $(window).scrollTop();
+
+		if (position > topDistance) {
+			$(header).css({
+				"position": "fixed",				
+				"top": 0,
+				"width": "100%",
+				"z-index": 2000
+			});
+		}
+		else {
+			$(header).css({
+				"position": "",
+				"top": "",
+				"width": "",
+				"z-index": ""
+			});
+		}
+
+	});
 }

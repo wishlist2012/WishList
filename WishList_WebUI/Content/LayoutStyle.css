@@ -141,9 +141,9 @@
     border-bottom-right-radius: 3px;
     
     /* shadow */
-    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Для Firefox */
-    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Для Safari и Chrome */
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Параметры тени */
+    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* for Firefox */
+    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* for Safari and Chrome */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3); 
 }
 
 #right-nav-menu li:hover .right-hidden-menu
@@ -181,9 +181,9 @@
     border-radius: 3px;    
     
      /* shadow */
-    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Для Firefox */
-    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Для Safari и Chrome */
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Параметры тени */
+    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* for Firefox */
+    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* for Safari and Chrome */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2); 
 }
 .right-col-list li:hover a
 {
@@ -242,9 +242,9 @@
     border-bottom-right-radius: 3px;
     
     /* shadow */
-    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Для Firefox */
-    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Для Safari и Chrome */
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* Параметры тени */
+    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* for Firefox */
+    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.3); /* for Safari and Chrome */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3); 
 }
 #menu li:hover .hidden-menu
 {   
@@ -287,9 +287,9 @@
     border-radius: 3px;    
     
      /* shadow */
-    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Для Firefox */
-    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Для Safari и Chrome */
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Параметры тени */
+    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* for Firefox */
+    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* for Safari and Chrome */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2); 
 }
 .col-list li:hover a
 {
@@ -316,7 +316,7 @@
 }
 .pin-holder
 {
-	background-color: White;
+	background-color: #FFFFFF;
 	border-bottom: 1px solid #C4C4C4;
 	padding-bottom:5px;
 }
@@ -351,7 +351,7 @@
 }
 .comment
 {	
-	border-top:1px solid white;
+	border-top:1px solid #FFFFFF;
 	border-bottom:1px solid #C4C4C4;	
 	height:1%;
 	overflow:hidden;	
@@ -432,9 +432,9 @@
 .action-button:hover
 {
 	/* shadow */
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);  /* Для Firefox */    
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Для Safari и Chrome */     
-    box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.2); /* Параметры тени */
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);  /* for Firefox */    
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* for Safari and Chrome */     
+    box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.2); 
     
     background-color:#FFFFFF;
 }
