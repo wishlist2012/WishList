@@ -1,6 +1,9 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="../jquery-1.7.1.min.js" />
+
+$(document).ready(function () {
 	OrderComments();
 	FixHeader();
+	ScrolUpButton();
 })
 function OrderComments() {
 	var posts = $('.post');
@@ -19,7 +22,7 @@ function OrderComments() {
 		}
 
 	});
-	$('.post-wrapper .post').wookmark({ offset: 20, autoResize: true });
+	$('.post-wrapper .post').wookmark({ offset: 10, autoResize: true });
 	$(".post-wrapper").css('visibility', 'visible');
 }
 
@@ -49,4 +52,28 @@ function FixHeader() {
 		}
 
 	});
+}
+
+function ScrolUpButton() {
+
+	var scrollHeight = 1.5;
+	var height = $(window).height();
+	var content = '<div class="scrollup"></div>';
+	var scrollup = $(content).appendTo('body');
+
+	$(window).scroll(function () {
+		if ($(window).scrollTop() >= height * scrollHeight) {			
+			scrollup.fadeIn();
+		}
+		else {
+			scrollup.fadeOut();
+		}
+	});
+	
+	scrollup.bind('click', function () {
+		$('html, body').animate({ scrollTop: 0 }, 500);
+	}).hover(function () {
+		$(this).css('cursor', 'pointer');
+	});
+
 }

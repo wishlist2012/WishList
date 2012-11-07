@@ -438,3 +438,16 @@
     
     background-color:#FFFFFF;
 }
+
+/*----------------------- SCROLLUP BUTTON -------------------------------*/
+.scrollup
+{
+	display:none;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #C4C4C4;
+	background-color: #F2F0F0;
+}
