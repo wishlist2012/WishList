@@ -191,6 +191,12 @@
     color:#fff;
 }
 /*------------------------ MENU ---------------------------------*/
+.arrow:after 
+{
+	font-size:10px;
+    content: '▼';
+} 
+    
 .menu-item
 {
     display: inline-block;
