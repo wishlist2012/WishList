@@ -50,61 +50,7 @@
         <ul id="menu">
             <li class="menu-item">Following</li>
             <li class="menu-item arrow">Categories
-                <div class="hidden-menu">                    
-                    <div class="col">  
-                        <ul class="col-list">  
-                            <li><a href="#">Animals</a></li>  
-                            <li><a href="#">DIY & Crafts</a></li>  
-                            <li><a href="#">Gardening</a></li>  
-                            <li><a href="#">History</a></li>  
-                            <li><a href="#">Outdoors</a></li>  
-                            <li><a href="#">Sports</a></li>  
-                            <li><a href="#">Women's Fashion</a></li>                              
-                        </ul>  
-                    </div>  
-                    <div class="col">  
-                        <ul class="col-list">  
-                            <li><a href="#">Architecture</a></li>  
-                            <li><a href="#">Design</a></li>  
-                            <li><a href="#">Geek</a></li>  
-                            <li><a href="#">Home Decor</a></li>  
-                            <li><a href="#">Photography</a></li>  
-                            <li><a href="#">Tatoos</a></li> 
-                            <li><a href="#">Videos</a></li>  
-                        </ul>  
-                    </div>  
-                    <div class="col">  
-                        <ul class="col-list">  
-                            <li><a href="#">Art</a></li>  
-                            <li><a href="#">Education</a></li>  
-                            <li><a href="#">Health & Fitness</a></li>  
-                            <li><a href="#">Illustration</a></li>  
-                            <li><a href="#">Illustration & Posters</a></li>  
-                            <li><a href="#">Products</a></li>  
-                            <li><a href="#">Technology</a></li>                              
-                        </ul>  
-                    </div>  
-                    <div class="col">  
-                        <ul class="col-list">  
-                            <li><a href="#">Cars & Motocycles</a></li>  
-                            <li><a href="#">Film, Music & Books</a></li>  
-                            <li><a href="#">Hear & Beauty</a></li>  
-                            <li><a href="#">Kids</a></li>  
-                            <li><a href="#">Quotes</a></li>  
-                            <li><a href="#">Travel</a></li>                                                       
-                        </ul>  
-                    </div>  
-                    <div class="col">  
-                        <ul class="col-list">  
-                            <li><a href="#">Celebrities</a></li>  
-                            <li><a href="#">Food & Drink</a></li>  
-                            <li><a href="#">Holidays & Events</a></li>  
-                            <li><a href="#">Men's Fashions</a></li>  
-                            <li><a href="#">Scince & Nature</a></li>  
-                            <li><a href="#">Weddings</a></li>                                                           
-                        </ul>  
-                    </div> 
-                </div>
+                @Html.Partial("ContainerCategory", WishList_Repository.Repository.CategoryRepositoryInstance.GetAll())
             </li>
             <li class="menu-item">Everything</li>
             <li class="menu-item">Popular</li>
