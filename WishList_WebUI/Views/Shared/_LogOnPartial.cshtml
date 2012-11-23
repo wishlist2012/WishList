@@ -1,0 +1,19 @@
+﻿@if(Request.IsAuthenticated) {
+   <li class="right-nav-menu-item arrow">Account
+        <div class="right-hidden-menu">
+            <ul class="right-col-list">
+                <li><a href="#">Invite Friends</a></li>
+                <li><a href="#">Find Friends</a></li>
+                <li><a href="#">Boards</a></li>                            
+                <li><a href="#">Pins</a></li>
+                <li><a href="#">Likes</a></li>                            
+                <li><a href="#">Settings</a></li>                            
+                <li><a href="#">@Html.ActionLink("Logout", "LogOff", "Account") </a></li>                            
+            </ul>
+        </div>
+    </li>	
+}
+else
+{
+    @:@Html.ActionLink("Login", "LogOn", "Account") 
+}

@@ -15,6 +15,10 @@ namespace WishList_Repository.DBEntities
         
         public string Password { get; set; }
 
+		public string PasswordSalt { get; set; }
+
+		public string UserName { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -25,10 +29,16 @@ namespace WishList_Repository.DBEntities
 
         public DateTime CreatedUTC { get; set; }
 
+		public DateTime LastLoginDate { get; set; }
+
         public Collection<int> BusinessRuleIdList { get; set; }
 
         public int UserSettingId { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActivated { get; set; }
+
+		public bool IsLockedOut { get; set; }
+
+		public DateTime LastLockedOutDate { get; set; }
     }
 }

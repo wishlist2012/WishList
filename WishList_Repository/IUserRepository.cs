@@ -12,13 +12,21 @@ namespace WishList_Repository
     /// </summary>
     public interface IUserRepository : IDisposable
     {
-        UserEntity Get(int id);
+        UserEntity GetUserById(int id);
+
+		UserEntity GetUserByUserName(string userName);
+
+		string GetUserNameByEmail(string email);
 
         Collection<UserEntity> GetAll();
 
+		bool IsUniqueEmail(string email);
+
+		bool ValidateUser(string email, string password);
+
         bool Update(UserEntity user);
 
-        bool Create(UserEntity user);
+		bool Create(string userName, string firstName, string lastName, string email, string password);
 
         bool Delete(int id);
 
@@ -31,5 +39,6 @@ namespace WishList_Repository
         int GetCount();
 
         Collection<UserEntity> GetFollowings(int userId);
+		
     }
 }

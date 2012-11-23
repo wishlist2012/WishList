@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WishList_Repository.DBEntities.CategoryEntity>
+@{
+    int itemsPerList = 7;
+}
+<div class="hidden-menu">
+    @* Rows cicle *@
+    @for (int i = 0; i < Model.Count() / itemsPerList + 1; i++)
+    {        
+        <div class="col">
+            <ul class="col-list">
+                @* Columns cicle *@
+                @for (int j = 0; j < itemsPerList && itemsPerList * i + j < Model.Count(); j++)
+                {
+                    <li><a href="#">@Model.ElementAt(itemsPerList * i + j).Name</a></li>
+                }
+            </ul>
+        </div>
+    }
+</div>

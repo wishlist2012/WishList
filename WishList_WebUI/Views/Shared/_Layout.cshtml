@@ -28,19 +28,9 @@
                         </ul>
                     </div>
                 </li>
-                <li class="right-nav-menu-item arrow">Account
-                    <div class="right-hidden-menu">
-                        <ul class="right-col-list">
-                            <li><a href="#">Invite Friends</a></li>
-                            <li><a href="#">Find Friends</a></li>
-                            <li><a href="#">Boards</a></li>                            
-                            <li><a href="#">Pins</a></li>
-                            <li><a href="#">Likes</a></li>                            
-                            <li><a href="#">Settings</a></li>                            
-                            <li><a href="#">Logout</a></li>                            
-                        </ul>
-                    </div>
-                </li>
+				<li class="right-nav-menu-item">
+					@Html.Partial("_LogOnPartial")
+				</li>               
             </ul>
         </div> 
         <a id="search-button" href="#"><img src="../../Content/images/search.gif" alt="Alternate Text" /></a>  
@@ -50,7 +40,7 @@
         <ul id="menu">
             <li class="menu-item">Following</li>
             <li class="menu-item arrow">Categories
-                @Html.Partial("ContainerCategory", WishList_Repository.Repository.CategoryRepositoryInstance.GetAll())
+                @Html.Partial("_ContainerCategory", WishList_Repository.Repository.CategoryRepositoryInstance.GetAll())
             </li>
             <li class="menu-item">Everything</li>
             <li class="menu-item">Popular</li>
