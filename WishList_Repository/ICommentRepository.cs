@@ -10,7 +10,7 @@ namespace WishList_Repository
     /// <summary>
     /// Common interface for comment repository
     /// </summary>
-    public interface ICommentRepository: IDisposable
+    public interface ICommentRepository : IDisposable
     {
         Collection<CommentEntity> GetAllByPostId(long id);
 
