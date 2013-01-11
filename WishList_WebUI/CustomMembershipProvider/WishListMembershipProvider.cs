@@ -33,6 +33,11 @@ namespace WishList_WebUI.CustomMembershipProvider
 		private string _PasswordStrengthRegularExpression;
 		private MembershipPasswordFormat _PasswordFormat = MembershipPasswordFormat.Hashed;
 
+        /// <summary>
+        /// Gets data from web config
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="config"></param>
 		public override void Initialize(string name, NameValueCollection config)
 		{
 			if (config == null)
@@ -58,7 +63,9 @@ namespace WishList_WebUI.CustomMembershipProvider
 			_PasswordStrengthRegularExpression = Convert.ToString(GetConfigValue(config["passwordStrengthRegularExpression"], ""));
 		}
 
-
+        /// <summary>
+        /// Gets or sets application name
+        /// </summary>
 		public override string ApplicationName
 		{
 			get	{ return _ApplicationName; }
@@ -80,6 +87,16 @@ namespace WishList_WebUI.CustomMembershipProvider
 			throw new NotImplementedException();
 		}
 
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="status"></param>
+        /// <returns>status creation</returns>
 		public MembershipUser CreateUser(string userName, string firstName, string lastName, string email, string password, out MembershipCreateStatus status)
 		{
 			ValidatePasswordEventArgs args = new ValidatePasswordEventArgs(userName, password, true);
@@ -233,6 +250,12 @@ namespace WishList_WebUI.CustomMembershipProvider
 			throw new NotImplementedException();
 		}
 
+        /// <summary>
+        /// Validate user by email and pasword
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>boolean result</returns>
 		public override bool ValidateUser(string email, string password)
 		{
 			return Repository.UserRepositoryInstance.ValidateUser(email, password);			

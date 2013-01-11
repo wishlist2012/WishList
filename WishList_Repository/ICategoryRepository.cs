@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WishList_Repository.DBEntities;
 using System.Collections.ObjectModel;
+using WishList_Repository.DBEntities;
 
 namespace WishList_Repository
 {
@@ -12,8 +12,17 @@ namespace WishList_Repository
     /// </summary>
     public interface ICategoryRepository : IDisposable
     {
+        /// <summary>
+        /// Gets category by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> category </returns>
         CategoryEntity Get(int id);
 
+        /// <summary>
+        /// Gets all categories
+        /// </summary>
+        /// <returns>all categories </returns>
         Collection<CategoryEntity> GetAll();
     }
 }

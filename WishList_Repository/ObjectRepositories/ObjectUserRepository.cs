@@ -20,6 +20,9 @@ namespace WishList_Repository.ObjectRepositories
 
         #region Default constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ObjectUserRepository()
         {
             _users = new Collection<UserEntity>();
@@ -37,21 +40,39 @@ namespace WishList_Repository.ObjectRepositories
 
         #endregion		
 
+        /// <summary>
+        /// Clear all user
+        /// </summary>
         public void Dispose()
         {
             _users.Clear();
         }
 
+        /// <summary>
+        /// Gets user by id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>user by id</returns>
         public UserEntity GetUserById(int userId)
         {
             return _users.SingleOrDefault(u => u.Id == userId);
         }
 
+        /// <summary>
+        /// Gets user by user name
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>user by user name</returns>
 		public UserEntity GetUserByUserName(string userName)
 		{
 			return _users.SingleOrDefault(u => u.UserName == userName);
 		}
 
+        /// <summary>
+        /// Gets user name by email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>user name by email</returns>
 		public string GetUserNameByEmail(string email)
 		{
 			UserEntity user = _users.SingleOrDefault(u => u.Email == email);
@@ -62,11 +83,20 @@ namespace WishList_Repository.ObjectRepositories
 				return string.Empty;
 		}
 
+        /// <summary>
+        /// Gets all users
+        /// </summary>
+        /// <returns>all users</returns>
         public Collection<UserEntity> GetAll()
         {
             return _users;
         }
 
+        /// <summary>
+        /// Update current user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>bolean result</returns>
         public bool Update(UserEntity user)
         {
             bool updateResult = false;
@@ -83,6 +113,15 @@ namespace WishList_Repository.ObjectRepositories
             return updateResult;
         }
 
+        /// <summary>
+        /// Create user
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>bolean result</returns>
 		public bool Create(string userName, string firstName, string lastName, string email, string password)
         {
 			bool createResult = false;
@@ -113,6 +152,11 @@ namespace WishList_Repository.ObjectRepositories
             return createResult;
         }
 
+        /// <summary>
+        /// Delete user by id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>bolean result</returns>
         public bool Delete(int userId)
         {
             bool deleteResult = false;
@@ -127,11 +171,24 @@ namespace WishList_Repository.ObjectRepositories
             return deleteResult;
         }
 
+        /// <summary>
+        /// Check if user exist by email and password
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>bolean result</returns>
         public bool IsExists(string email, string password)
         {
             return (_users.Count(u => string.Equals(u.Email, email) && string.Equals(u.Password, password)) == 1);
         }
-                
+        
+        /// <summary>
+        /// Changes pasword
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="oldPassword"></param>
+        /// <param name="newPassword"></param>
+        /// <returns>bolean result</returns>
         public bool ChangePassword(int userId, string oldPassword, string newPassword)
         {
             bool changePasswordResult = false;
@@ -146,16 +203,30 @@ namespace WishList_Repository.ObjectRepositories
             return changePasswordResult;
         }
 
+        /// <summary>
+        /// Gets count of all users
+        /// </summary>
+        /// <returns>bolean result</returns>
         public int GetCount()
         {
             return _users.Count;
         }
 
+        /// <summary>
+        /// Check if user exist by user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>bolean result</returns>
         public bool IsExists(int userId)
         {
             return (_users.Count(u => u.Id == userId) == 1);
         }
 
+        /// <summary>
+        /// Gets user followers by user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>user followers</returns>
         public Collection<UserEntity> GetFollowings(int userId)
         {
             Collection<UserEntity> followingUsers = new Collection<UserEntity>();
@@ -167,6 +238,11 @@ namespace WishList_Repository.ObjectRepositories
             return followingUsers;
         }
 
+        /// <summary>
+        /// Check if email is unique
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>boolean result</returns>
 		public bool IsUniqueEmail(string email)
 		{
 			bool EmailExist = true;
@@ -177,6 +253,12 @@ namespace WishList_Repository.ObjectRepositories
 			return EmailExist;
 		}
 
+        /// <summary>
+        /// Validate user by email and pasword
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>boolean result</returns>
 		public bool ValidateUser(string email, string password)
 		{
 			UserEntity user = _users.FirstOrDefault(u => u.Email == email);
@@ -189,8 +271,11 @@ namespace WishList_Repository.ObjectRepositories
 		/// Helper Methods
 		/// </summary>
 		#region Helper Methods
-
-		//Generate new random id
+        		
+        /// <summary>
+        /// Generate new random id
+        /// </summary>
+        /// <returns>new id</returns>
 		private static int GenerateNewID()
 		{
 			Random rnd = new Random();
@@ -199,7 +284,10 @@ namespace WishList_Repository.ObjectRepositories
 			return ID;
 		}
 
-		//Create salt for password
+		/// <summary>
+        /// Create salt for password
+		/// </summary>
+		/// <returns>new salt for password</returns>
 		private static string CreateSalt()
 		{
 			RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
@@ -209,7 +297,12 @@ namespace WishList_Repository.ObjectRepositories
 			return Convert.ToBase64String(buff);
 		}
 
-		//Create password hash
+		/// <summary>
+        /// Create password hash
+		/// </summary>
+		/// <param name="password"></param>
+		/// <param name="salt"></param>
+		/// <returns>password hash</returns>
 		private static string CreatePasswordHash(string password, string salt)
 		{			
 			string saltAndPwd = String.Concat(password, salt);

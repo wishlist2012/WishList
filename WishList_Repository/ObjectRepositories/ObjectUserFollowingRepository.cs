@@ -16,6 +16,9 @@ namespace WishList_Repository.ObjectRepositories
 
         #region Default constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ObjectUserFollowingRepository()
         {
             _userFollowings = new Collection<UserFollowingEntity>();
@@ -37,11 +40,19 @@ namespace WishList_Repository.ObjectRepositories
 
         #endregion
 
+        /// <summary>
+        /// Clear all followers of user
+        /// </summary>
         public void Dispose()
         {
             _userFollowings.Clear();
         }
 
+        /// <summary>
+        /// Gets all followers of user by id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>all followers of user by id</returns>
         public Collection<UserFollowingEntity> GetByUserId(int userId)
         {
             Collection<UserFollowingEntity> followings = new Collection<UserFollowingEntity>();

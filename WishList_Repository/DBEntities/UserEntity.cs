@@ -44,7 +44,7 @@ namespace WishList_Repository.DBEntities
         /// <summary>
         /// Gets or sets the user's photo
         /// </summary>
-		public string UserPhoto { get; set; }
+        public string UserPhoto { get; set; }
 
         /// <summary>
         /// Gets or sets the user's email

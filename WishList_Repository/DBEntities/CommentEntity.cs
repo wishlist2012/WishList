@@ -6,7 +6,7 @@ using System.Text;
 namespace WishList_Repository.DBEntities
 {
     /// <summary>
-    /// Coment entity
+    /// Comment entity
     /// </summary>
     public class CommentEntity
     {

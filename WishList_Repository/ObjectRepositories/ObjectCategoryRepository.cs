@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
-
 using WishList_Repository.DBEntities;
 
 namespace WishList_Repository.ObjectRepositories
@@ -17,9 +16,13 @@ namespace WishList_Repository.ObjectRepositories
 
         #region Default constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ObjectCategoryRepository()
         {
             _categories = new Collection<CategoryEntity>();
+
             _categories.Add(new CategoryEntity() { Id = 1, Name = "Animals" });
             _categories.Add(new CategoryEntity() { Id = 2, Name = "DIY & Crafts" });
             _categories.Add(new CategoryEntity() { Id = 3, Name = "Gardening" });
@@ -57,16 +60,28 @@ namespace WishList_Repository.ObjectRepositories
 
         #endregion
 
+        /// <summary>
+        /// Delete all categories
+        /// </summary>
         public void Dispose()
         {
             _categories.Clear();
         }
 
+        /// <summary>
+        /// Gets category by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>category</returns>
         public CategoryEntity Get(int id)
         {
             return _categories.SingleOrDefault(r => r.Id == id);
         }
 
+        /// <summary>
+        /// Gets all categories
+        /// </summary>
+        /// <returns>all categories</returns>
         public Collection<CategoryEntity> GetAll()
         {
             return _categories;

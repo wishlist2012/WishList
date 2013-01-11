@@ -17,6 +17,9 @@ namespace WishList_Repository.ObjectRepositories
 
         #region Default constructor
 
+        /// <summary>
+        /// Default constructur
+        /// </summary>
         public ObjectCommentRepository()
         {
             _comments = new Collection<CommentEntity>();
@@ -46,11 +49,19 @@ namespace WishList_Repository.ObjectRepositories
 
         #endregion
 
+        /// <summary>
+        /// Clear all comments
+        /// </summary>
         public void Dispose()
         {
             _comments.Clear();
         }
 
+        /// <summary>
+        /// Get all comments by post id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>all comments</returns>
         public Collection<CommentEntity> GetAllByPostId(long id)
         {
             Collection<CommentEntity> comments = new Collection<CommentEntity>();
@@ -63,6 +74,11 @@ namespace WishList_Repository.ObjectRepositories
             return comments;
         }
 
+        /// <summary>
+        /// Create comment
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns>created comment</returns>
         public bool Create(CommentEntity comment)
         {
             bool createResult = false;
@@ -76,6 +92,11 @@ namespace WishList_Repository.ObjectRepositories
             return createResult;
         }
 
+        /// <summary>
+        /// Update comment
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <returns>updated comment</returns>
         public bool Update(CommentEntity comment)
         {
             bool updateResult = false;
@@ -92,6 +113,11 @@ namespace WishList_Repository.ObjectRepositories
 
         }
 
+        /// <summary>
+        /// Delete comment by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>bolean result</returns>
         public bool Delete(int id)
         {
             bool deleteResult = false;
@@ -106,6 +132,10 @@ namespace WishList_Repository.ObjectRepositories
             return deleteResult;
         }
 
+        /// <summary>
+        /// Gets count of comments
+        /// </summary>
+        /// <returns>Count of comments</returns>
         public int GetCount()
         {
             return _comments.Count;

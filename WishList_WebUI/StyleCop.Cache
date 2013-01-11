@@ -34,9 +34,6 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="-630837049">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="BundleConfig.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2012.11.14 11:56:32.000</styleCop>
@@ -3137,17 +3134,6 @@
         <endColumn>2</endColumn>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>83</line>
-        <index>3073</index>
-        <endIndex>3074</endIndex>
-        <startLine>83</startLine>
-        <startColumn>1</startColumn>
-        <endLine>83</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ConstructorSummaryDocumentationMustBeginWithStandardText" ruleCheckId="SA1642">
         <context>The documentation text within the constructor's summary tag must begin with the text: Initializes a new instance of the &lt;see cref="WishListMembershipProvider" /&gt; class.</context>
         <line>18</line>
@@ -3990,39 +3976,6 @@
         <line>78</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>79</line>
-        <index>3020</index>
-        <endIndex>3021</endIndex>
-        <startLine>79</startLine>
-        <startColumn>1</startColumn>
-        <endLine>79</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>80</line>
-        <index>3025</index>
-        <endIndex>3027</endIndex>
-        <startLine>80</startLine>
-        <startColumn>1</startColumn>
-        <endLine>80</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>81</line>
-        <index>3066</index>
-        <endIndex>3067</endIndex>
-        <startLine>81</startLine>
-        <startColumn>1</startColumn>
-        <endLine>81</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
         <context>The method must have a documentation header.</context>
         <line>83</line>
@@ -4048,61 +4001,6 @@
         <startColumn>8</startColumn>
         <endLine>95</endLine>
         <endColumn>26</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>84</line>
-        <index>3227</index>
-        <endIndex>3228</endIndex>
-        <startLine>84</startLine>
-        <startColumn>1</startColumn>
-        <endLine>84</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>85</line>
-        <index>3232</index>
-        <endIndex>3234</endIndex>
-        <startLine>85</startLine>
-        <startColumn>1</startColumn>
-        <endLine>85</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>86</line>
-        <index>3326</index>
-        <endIndex>3328</endIndex>
-        <startLine>86</startLine>
-        <startColumn>1</startColumn>
-        <endLine>86</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>87</line>
-        <index>3331</index>
-        <endIndex>3333</endIndex>
-        <startLine>87</startLine>
-        <startColumn>1</startColumn>
-        <endLine>87</endLine>
-        <endColumn>3</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.SpacingRules" rule="TabsMustNotBeUsed" ruleCheckId="SA1027">
-        <context>Tabs are not allowed. Use spaces instead.</context>
-        <line>89</line>
-        <index>3365</index>
-        <endIndex>3367</endIndex>
-        <startLine>89</startLine>
-        <startColumn>1</startColumn>
-        <endLine>89</endLine>
-        <endColumn>3</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
@@ -4438,4 +4336,7 @@
       </violation>
     </violations>
   </sourcecode>
+  <project key="-630837049">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>
