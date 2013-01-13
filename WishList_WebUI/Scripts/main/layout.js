@@ -5,6 +5,8 @@ $(document).ready(function () {
 	FixHeader();
 	ScrolUpButton();
 })
+
+// order comments in post and add "show all" link if comments more then five
 function OrderComments() {
 	var posts = $('.post');
 	$.each(posts, function (i) {
@@ -26,6 +28,7 @@ function OrderComments() {
 	$(".post-wrapper").css('visibility', 'visible');
 }
 
+// fix header at the top of window when user scroll down
 function FixHeader() {
 	var topDistance = 40;
 	var position;
@@ -54,6 +57,7 @@ function FixHeader() {
 	});
 }
 
+//scroll up button
 function ScrolUpButton() {
 
 	var scrollHeight = 1.5;

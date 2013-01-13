@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using System.Net;
+using System.IO;
+using Facebook;
+using Newtonsoft.Json.Linq;
 using WishList_WebUI.Models;
 using WishList_WebUI.CustomMembershipProvider;
 
@@ -165,6 +169,90 @@ namespace WishList_WebUI.Controllers
 		{
 			return View();
 		}
+
+        //
+        // GET: /Account/LoginWithFacebook
+        
+        public ActionResult LoginWithFacebook()
+        {
+            string req = string.Format("https://www.facebook.com/dialog/oauth?client_id={0}&redirect_uri=http://{1}/Account/ReturnFromFacebook&scope=user_about_me,user_hometown,user_location,email,offline_access", System.Web.Configuration.WebConfigurationManager.AppSettings["facebookAppId"], System.Web.Configuration.WebConfigurationManager.AppSettings["DomainName"]);
+            return Redirect(req);
+        }
+
+        //
+        // POST: /Account/LoginWithFacebook
+
+        public ActionResult ReturnFromFacebook()
+        {
+            string code = Request.QueryString["code"];
+
+            if (code == null)
+            {
+                return RedirectToAction("Home", "Home");
+            }
+
+            string AccessToken = "";
+            try
+            {
+                if (code != null)
+                {
+                    string str = string.Format("https://graph.facebook.com/oauth/access_token?client_id={0}&redirect_uri=http://{1}/Account/ReturnFromFacebook&client_secret={2}&code={3}", System.Web.Configuration.WebConfigurationManager.AppSettings["facebookAppId"], Request.Url.Authority, System.Web.Configuration.WebConfigurationManager.AppSettings["facebookAppSecret"], code);
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(str);
+                    req.Method = "POST";
+                    req.ContentType = "application/x-www-form-urlencoded";
+                    byte[] Param = Request.BinaryRead(System.Web.HttpContext.Current.Request.ContentLength);
+                    string strRequest = System.Text.Encoding.ASCII.GetString(Param);
+
+                    req.ContentLength = strRequest.Length;
+
+                    StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
+                    streamOut.Write(strRequest);
+                    streamOut.Close();
+                    StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
+                    string strResponse = streamIn.ReadToEnd();
+                    if (strResponse.Contains("&expires"))
+                        strResponse = strResponse.Substring(0, strResponse.IndexOf("&expires"));
+                    AccessToken = strResponse.Replace("access_token=", "");
+                    streamIn.Close();
+                }
+
+                Facebook.FacebookAPI api = new Facebook.FacebookAPI(AccessToken);
+                string request = "/me";
+
+                JSONObject fbobject = api.Get(request);
+                try
+                {
+                    ViewBag.FacebookID = fbobject.Dictionary["id"].String;
+                    ViewBag.FirstName = fbobject.Dictionary["first_name"].String;
+                    ViewBag.LastName = fbobject.Dictionary["last_name"].String;
+                    ViewBag.Email = fbobject.Dictionary["email"].String;
+
+                    //Here we can get all data using fbobject.Dictionary
+
+                    string str = string.Format("http://graph.facebook.com/{0}?fields=picture&type=normal", fbobject.Dictionary["id"].String);
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create(str);
+                    StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
+                    string strResponse = streamIn.ReadToEnd();
+                    JObject je = new JObject();
+                    je = JObject.Parse(strResponse);                    
+                    string pictureuser = je["picture"]["data"]["url"].ToString();
+                    
+                    ViewBag.Photo = pictureuser;
+
+                    FormsAuthentication.SetAuthCookie(ViewBag.Email, true);
+
+                }
+                catch (Exception ex)
+                {
+                    //errorLog.setError(ex, "LoginController.SaveFacebookData");
+                }
+            }
+            catch (Exception ex)
+            {
+                //errorLog.setError(ex, "LoginController.returnfromfb");
+            }
+            return RedirectToAction("Home", "Home");
+        }
 
 		#region Status Codes
 		private static string ErrorCodeToString(MembershipCreateStatus createStatus)

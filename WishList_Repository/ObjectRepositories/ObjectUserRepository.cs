@@ -263,7 +263,7 @@ namespace WishList_Repository.ObjectRepositories
 		{
 			UserEntity user = _users.FirstOrDefault(u => u.Email == email);
 
-			return (user != null && user.Password == CreatePasswordHash(password, user.PasswordSalt));
+            return (user != null && user.Password == CreatePasswordHash(password, user.PasswordSalt));
 		}
 
 
